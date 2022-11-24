@@ -26,8 +26,30 @@ else Console.WriteLine("Введите два положительныхчисл
 //9012 -> 12
 //Решение:
 
+int CountDigits (int num)
+{   int count = 1;
+    while ((num / 10) > 0){
+        num = num / 10;
+        count += 1;
+    }
+    return count;
+}
 
+int Sum_of_Digits (int num, int quant)
+{
+    int summa = 0;
+    for (int i = 1; i <= (quant - 1); i++)
+    {summa += num % 10;
+    num = num / 10;}
+    summa = summa + num;
+    return summa;
+}
 
+Console.WriteLine("Введите число: ");
+int user_num = Convert.ToInt32(Console.ReadLine());
+int digits = CountDigits(user_num);
+int user_sum = Sum_of_Digits(user_num, digits);
+Console.WriteLine($"Сумма цифр числа {user_num} - {Sum_of_Digits(user_num, digits)}");
 
 
 //Задача 29: Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
